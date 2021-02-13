@@ -18,7 +18,7 @@ This repository provides the implementation of the paper:
 2. System performance on the ASVspoof2019 PA of SE-Res2Net50 with different input features.
 ![](./result_table_figure/sys-performance-pa-diff-acoustic-feats.png)
 <div  align="center"> <img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" width = "600" height = "300" align=center /></div>
-<img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" width = "390" height = "195" align=center /> <img src="./result_table_figure/sys-performance-la-diff-acoustic-feats.png" width = "390" height = "195" align=center />
+<div  align="center"><img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" width = "390" height = "195" align=center /><img src="./result_table_figure/sys-performance-la-diff-acoustic-feats.png" width = "390" height = "195" align=center /></div>
 
 3. System performance on the ASVspoof2019 LA of SE-Res2Net50 with different input features.
 ![](./result_table_figure/sys-performance-la-diff-acoustic-feats.png)
