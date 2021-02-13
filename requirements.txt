@@ -1,8 +1,3 @@
-python3.6
-cuda10.1
-cudnn7.6
-torch1.4
-torchvision0.5
 numpy
 sacred
 scipy
