@@ -6,6 +6,9 @@ This repository provides the implementation of the paper:
 
 1. ResNet blocks
 ![](./result_table_figure/resnet-blocks.png)
+<img src="./result_table_figure/resnet-blocks.png" style="zoom:70%" />
+<img src="./result_table_figure/resnet-blocks.png" style="zoom:50%" />
+<img src="./result_table_figure/resnet-blocks.png" style="zoom:40%" />
 
 2. Overall model architecture
 ![](./result_table_figure/overall-architecture.png)
@@ -13,9 +16,15 @@ This repository provides the implementation of the paper:
 ## Main Results
 1. System performance on the ASVspoof2019 PA and LA dataset. (The input features for PA and LA are Spec and LFCC, respectively.)
 ![](./result_table_figure/sys-performance-diff-architecture.png)
+<img src="./result_table_figure/sys-performance-diff-architecture.png" style="zoom:90%" />
+<img src="./result_table_figure/sys-performance-diff-architecture.png" style="zoom:85%" />
+<img src="./result_table_figure/sys-performance-diff-architecture.png" style="zoom:70%" />
 
 2. System performance on the ASVspoof2019 PA of SE-Res2Net50 with different input features.
 ![](./result_table_figure/sys-performance-pa-diff-acoustic-feats.png)
+<img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" style="zoom:90%" />
+<img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" style="zoom:80%" />
+<img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" style="zoom:75%" />
 
 3. System performance on the ASVspoof2019 LA of SE-Res2Net50 with different input features.
 ![](./result_table_figure/sys-performance-la-diff-acoustic-feats.png)
@@ -41,14 +50,14 @@ This repository provides the implementation of the paper:
    The LFCC feature adopted in this work is extracted via the MALTAB codes privided by ASVspoof2019 orgnizers.
 
 ## Dataset
-
-    This work is conducted on [ASVspoof2019 Dataset](https://arxiv.org/pdf/1904.05441.pdf), which can be downloaded via https://datashare.ed.ac.uk/handle/10283/3336. It consists of two subsets, i.e. physical access (PA) for replay attacks and logical access (LA) for synthetic speech attacks.
+   This work is conducted on [ASVspoof2019 Dataset](https://arxiv.org/pdf/1904.05441.pdf), which can be downloaded via https://datashare.ed.ac.uk/handle/10283/3336. It consists of two subsets, i.e. physical access (PA) for replay attacks and logical access (LA) for synthetic speech attacks.
 
 ## Start Your Project
    This repository mainly consists of two parts: (i) feature extraction and (ii) system training and evaluation.
 
 ### Feature extraction
-   Three features are adopted in this repo, i.e. Spec, LFCC and CQT. The top script for feature extraction is `extract_feats.sh`, where the first step (Stage 0) is required to prepare dataset before feature extraction. `extract_feats.sh` also provides feature extraction for Spec (Stage 1) and CQT (Stage 2), while for LFCC extraction, you need to run the `./baseline/write_feature_kaldi_PA_LFCC.sh` and `./baseline/write_feature_kaldi_LA_LFCC.sh` scripts. All features are required to be truncated by the Stage 4 in `extract_feats.sh`.
+   Three features are adopted in this repo, i.e. Spec, LFCC and CQT. The top script for feature extraction is `extract_feats.sh`, where the first step (Stage 0) is required to prepare dataset before feature extraction. It also provides feature extraction for Spec (Stage 1) and CQT (Stage 2), while for LFCC extraction, you need to run the `./baseline/write_feature_kaldi_PA_LFCC.sh` and `./baseline/write_feature_kaldi_LA_LFCC.sh` scripts. All features are required to be truncated by the Stage 4 in `extract_feats.sh`.
+
    Given your dataset directory in `extract_feats.sh`, you can run any stage (e.g. NUM) in the `extract_feats.sh` by
    ```bash
    ./extract_feats.sh --stage NUM
@@ -71,11 +80,11 @@ This repository provides the implementation of the paper:
 ## Citation
 If this repo is helpful with your research or projects, please kindly star our repo and cite our paper as follows:
 ```
-@article{li2019adversarial,
-  title={Adversarial attacks on GMM i-vector based speaker verification systems},
-  author={Li, Xu and Zhong, Jinghua and Wu, Xixin and Yu, Jianwei and Liu, Xunying and Meng, Helen},
-  journal={arXiv preprint arXiv:1911.03078},
-  year={2019}
+@article{li2020replay,
+  title={Replay and Synthetic Speech Detection with Res2net Architecture},
+  author={Li, Xu and Li, Na and Weng, Chao and Liu, Xunying and Su, Dan and Yu, Dong and Meng, Helen},
+  journal={arXiv preprint arXiv:2010.15006},
+  year={2020}
 }
 ```
 
