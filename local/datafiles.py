@@ -72,6 +72,18 @@ la_cqt = {
         'eval_utt2systemID': 'data/cqt/LA_eval/utt2systemID',
 }
 
+debug_feats = {
+        'train_scp': 'data/debug_samples/feats_slicing.scp',
+        'train_utt2index': 'data/debug_samples/utt2index',
+        'dev_scp': 'data/debug_samples/feats_slicing.scp',
+        'dev_utt2index': 'data/debug_samples/utt2index',
+        'dev_utt2systemID': 'data/debug_samples/utt2systemID',
+        'scoring_dir': 'scoring/cm_scores/',
+        'eval_scp': 'data/debug_samples/feats_slicing.scp',
+        'eval_utt2index': 'data/debug_samples/utt2index',
+        'eval_utt2systemID': 'data/debug_samples/utt2systemID', 
+}
+
 data_prepare = {
         'pa_spec': pa_spec,
         'pa_cqt': pa_cqt,
@@ -79,5 +91,6 @@ data_prepare = {
         'la_spec': la_spec,
         'la_cqt': la_cqt,
         'la_lfcc': la_lfcc,
+        'debug_feats': debug_feats,
 }
 

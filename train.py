@@ -24,8 +24,7 @@ import torchvision.models as models
 from model import Detector
 from data_reader.dataset_v1 import SpoofDatsetSystemID
 
-from local import datafiles, trainer, validate
-from local.optimizer import ScheduledOptim
+from local import datafiles, trainer, validate, optimizer
 
 import argparse
 
@@ -56,7 +55,7 @@ def main(run_id, pretrained, data_files, model_params, training_params, device):
         model = nn.DataParallel(model).cuda()
 
     # define loss function (criterion) and optimizer
-    optimizer = ScheduledOptim(
+    optim = optimizer.ScheduledOptim(
             torch.optim.Adam(
             filter(lambda p: p.requires_grad, model.parameters()),
             betas=(0.9, 0.98), eps=1e-09, weight_decay=1e-4, lr=3e-4, amsgrad=True),
@@ -70,7 +69,7 @@ def main(run_id, pretrained, data_files, model_params, training_params, device):
             start_epoch = checkpoint['epoch']
             best_acc1 = checkpoint['best_acc1']
             model.load_state_dict(checkpoint['state_dict'])
-            optimizer.load_state_dict(checkpoint['optimizer'])
+            optim.load_state_dict(checkpoint['optimizer'])
             print("===> loaded checkpoint '{}' (epoch {})".format(pretrained, checkpoint['epoch']))
         else:
             print("===> no checkpoint found at '{}'".format(pretrained))
@@ -87,7 +86,7 @@ def main(run_id, pretrained, data_files, model_params, training_params, device):
     os.makedirs("model_snapshots/" + run_id, exist_ok=True) 
     for epoch in range(start_epoch, start_epoch+epochs):
 
-        trainer.train(train_loader, model, optimizer, epoch, device, log_interval)
+        trainer.train(train_loader, model, optim, epoch, device, log_interval)
         acc1 = validate.validate(val_loader, data_files['dev_utt2systemID'], model, device, log_interval)    
         
         is_best = acc1 > best_acc1
@@ -101,17 +100,17 @@ def main(run_id, pretrained, data_files, model_params, training_params, device):
         else:
             early_stopping += 1
             if epoch - best_epoch > 2:
-                optimizer.increase_delta()
+                optim.increase_delta()
                 best_epoch = epoch + 1
         if early_stopping == max_patience:
             break
         
         # save model
-        trainer.save_checkpoint({
+        optimizer.save_checkpoint({
             'epoch': epoch,
             'state_dict': model.state_dict(),
             'best_acc1': best_acc1,
-            'optimizer' : optimizer.state_dict(),
+            'optimizer' : optim.state_dict(),
             }, is_best,  "model_snapshots/" + str(run_id), str(epoch) + ('_%.3f'%acc1) + ".pth.tar")
 
 

@@ -72,6 +72,7 @@ def main(pretrained, data_files, model_params, training_params, device):
     eval_loader = torch.utils.data.DataLoader(
         eval_data, batch_size=test_batch_size, shuffle=False, **kwargs)
 
+    os.makedirs(data_files['scoring_dir'], exist_ok=True)
     # forward pass for dev
     print("===> forward pass for dev set")
     score_file_pth = os.path.join(data_files['scoring_dir'], str(pretrained_id) + '-epoch%s-dev_scores.txt' %(epoch_id))
