@@ -32,7 +32,7 @@ if [ $stage -le 0 ]; then
        done
     done
     echo "dataset finished"
-    # exit 0
+    exit 0
 fi
 
 if [ $stage -le 1 ]; then
