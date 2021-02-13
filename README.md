@@ -6,9 +6,7 @@ This repository provides the implementation of the paper:
 
 1. ResNet blocks
 ![](./result_table_figure/resnet-blocks.png)
-<img src="./result_table_figure/resnet-blocks.png" width = "400" height = "600" align=center />
-<img src="./result_table_figure/resnet-blocks.png" width = "500" height = "750" align=center />
-<img src="./result_table_figure/resnet-blocks.png" width = "600" height = "900" align=center />
+<div  align="center"> <img src="./result_table_figure/resnet-blocks.png" width = "400" height = "600" align=center /></div>
 
 2. Overall model architecture
 ![](./result_table_figure/overall-architecture.png)
@@ -16,13 +14,11 @@ This repository provides the implementation of the paper:
 ## Main Results
 1. System performance on the ASVspoof2019 PA and LA dataset. (The input features for PA and LA are Spec and LFCC, respectively.)
 ![](./result_table_figure/sys-performance-diff-architecture.png)
-<img src="./result_table_figure/sys-performance-diff-architecture.png" width = "700" height = "300" align=center />
 
 2. System performance on the ASVspoof2019 PA of SE-Res2Net50 with different input features.
 ![](./result_table_figure/sys-performance-pa-diff-acoustic-feats.png)
-<img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" width = "700" height = "350" align=center />
-<img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" width = "600" height = "300" align=center />
-<img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" width = "500" height = "250" align=center />
+<div  align="center"> <img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" width = "600" height = "300" align=center /></div>
+<img src="./result_table_figure/sys-performance-pa-diff-acoustic-feats.png" width = "390" height = "195" align=center /> <img src="./result_table_figure/sys-performance-la-diff-acoustic-feats.png" width = "390" height = "195" align=center />
 
 3. System performance on the ASVspoof2019 LA of SE-Res2Net50 with different input features.
 ![](./result_table_figure/sys-performance-la-diff-acoustic-feats.png)
