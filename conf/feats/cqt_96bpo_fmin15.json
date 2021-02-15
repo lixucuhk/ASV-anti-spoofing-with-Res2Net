@@ -1,9 +1,0 @@
-{
-    "sample_rate": 16000,
-    "n_bins": 864,
-    "hop_length": 256,
-    "bins_per_octave": 96,
-    "window": "hann",
-    "pre_emphasis": 0.97,
-    "fmin": 15
-}
