@@ -29,10 +29,9 @@ This repository provides the implementation of the paper:
     pip install -r requirements.txt
     ```
 
-2. Kaldi-io-for-python
+2. Kaldi
 
-    kaldi-io-for-python is a python package that is used for reading and writing data of `ark,scp` kaldi format.
-    See `README.md` in [kaldi-io-for-python](https://github.com/vesis84/kaldi-io-for-python) for installation.
+   This work used Kaldi to extract features, you need to install [Kaldi](https://github.com/kaldi-asr/kaldi) before running our scripts.
 
 3. MATLAB
 
@@ -65,6 +64,15 @@ This repository provides the implementation of the paper:
    Remember to rename your `runid` in `start.sh` to differentiate each configuration.
    From our experiments after ICASSP 2021 submission, we observe that SERes2Net50 configured with `14w_8s` and `26w_8s` can achieve slightly better performance.
 
+   For evaluating systems, you can either use the Kaldi command `compute-eer` with the resulting `*.eer` file to compute system EER, e.g.
+   ```bash
+   . ./path.sh
+   compute-eer NameofScoringFile.txt.eer
+   ```
+   or use the ASVspoof2019 official script `scoring/evaluate_tDCF_asvspoof19.py` with the resulting `*.txt` file to compute both system EER and t-DCF, e.g. on the LA evalation set, you need to run
+   ```bash
+   python scoring/evaluate_tDCF_asvspoof19.py scoring/la_asv_scores/ASVspoof2019.LA.asv.eval.gi.trl.scores.txt NameofScoringFile.txt
+   ```
 
 ## Citation
 If this repo is helpful with your research or projects, please kindly star our repo and cite our paper as follows:
