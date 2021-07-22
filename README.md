@@ -2,6 +2,8 @@
 This repository provides the implementation of the paper:
 [Replay and Synthetic Speech Detection with Res2Net architecture](https://arxiv.org/abs/2010.15006) (ICASSP 2021).
 
+Please notice that we have another work that is an extension of this work. If you are interested in that, please see [Paper](https://arxiv.org/pdf/2107.08803.pdf) and [Codes](https://github.com/lixucuhk/Channel-wise-Gated-Res2Net).
+
 ## System Architecture
 
 1. ResNet blocks
