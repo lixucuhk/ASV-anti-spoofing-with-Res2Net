@@ -49,6 +49,10 @@ fi
 
 if [ $stage -le 2 ]; then
    echo "Stage 2: extract CQT feats."
+   mkdir -p data/cqt || exit 1
+   for name in PA_train PA_dev PA_eval LA_train LA_dev LA_eval; do
+       [ -d data/cqt/${name} ] || cp -r data/${name} data/cqt/${name} || exit 1
+   done
    python3 feats_extraction/compute_CQT.py --out_dir data/cqt --access_type PA --param_json_path conf/feats/cqt_48bpo_fmin15.json --num_workers 60 || exit 1
    python3 feats_extraction/compute_CQT.py --out_dir data/cqt --access_type LA --param_json_path conf/feats/cqt_48bpo_fmin15.json --num_workers 60 || exit 1
    python3 feats_extraction/GenLPCQTFeats_kaldi.py --access_type PA --work_dir data/cqt || exit 1
